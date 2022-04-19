@@ -2,7 +2,20 @@ import React, { useEffect, useState } from "react";
 import MovieList from "./movies/MovieList";
 import { movieLandingPage } from "./movies/movies.model";
 import "./App.css";
+import Menu from "./Menu";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import IndexGenre from "./genres/IndexGenre";
+function Index() {
+  return <h1>Index</h1>;
+}
 
+function Abc() {
+  return <h1>Abc</h1>;
+}
+
+function Bcd() {
+  return <h1>Bcd</h1>;
+}
 function App() {
   const [movies, SetMovies] = useState<movieLandingPage>({});
 
@@ -38,12 +51,22 @@ function App() {
   });
 
   return (
-    <div className='container'>
-      <h2>Movies In theater</h2>
-      <MovieList movies={movies.movies} />
-      <h3>Upcoming releases</h3>
-      <MovieList movies={movies.upcoming} />
-    </div>
+    <BrowserRouter>
+      <Menu />
+      <div className='container'>
+        <Switch>
+          <Route exact path='/'>
+            <h3>In theaters</h3>
+            <MovieList movies={movies.movies} />
+            <h3>Upcoming Release</h3>
+            <MovieList movies={movies.upcoming} />
+          </Route>
+          <Route path='/genres'>
+            <IndexGenre />
+          </Route>
+        </Switch>
+      </div>
+    </BrowserRouter>
   );
 }
 

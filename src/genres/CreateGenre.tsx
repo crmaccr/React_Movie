@@ -6,7 +6,7 @@ import * as Yup from "yup";
 import TextField from "../forms/TextField";
 
 const formSchema = Yup.object().shape({
-  genre: Yup.string().required("This field is required"),
+  genre: Yup.string().firstLetterUppercase().required("This field is required"),
 });
 export default function CreateGenre() {
   return (

@@ -6,7 +6,7 @@ export default function IndexGenre() {
     <>
       <h3>Genres</h3>
       <Link to='/genres/create' className='btn btn-primary'>
-        Creat Genre
+        Create Genre
       </Link>
     </>
   );

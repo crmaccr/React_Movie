@@ -1,7 +1,7 @@
 import * as Yup from "yup";
 
 function configureValidations() {
-  Yup.addMethod(Yup.string, "firstLetterUppercase", function () {
+  Yup.addMethod(Yup.string, "firstLetterUpperCase", function () {
     return this.test(
       "first-letter-uppercase",
       "First letter must be uppercase",

@@ -1,14 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { Form, Formik } from "formik";
-import Button from "../utils/Button";
-import * as Yup from "yup";
-import TextField from "../forms/TextField";
 import GenreForm from "./GenreForm";
 
-const formSchema = Yup.object().shape({
-  genre: Yup.string().required("genre is required"),
-});
 export default function CreateGenre() {
   return (
     <>

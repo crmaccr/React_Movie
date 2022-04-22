@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, useState } from "react";
 import { actorMovieDTO } from "../actors/actor.model";
 import { Typeahead } from "react-bootstrap-typeahead";
 
@@ -27,6 +27,30 @@ export default function TypeAheadActors(props: typeAheadActorProps) {
     },
   ];
   const selected: actorMovieDTO[] = [];
+  const [draggedElement, setDraggedElement] = useState<
+    actorMovieDTO | undefined
+  >(undefined);
+  function handleDragStart(actor: actorMovieDTO) {
+    setDraggedElement(actor);
+  }
+
+  function handleDragOver(
+    actor: actorMovieDTO /* actor overwhich we are dragging over */
+  ) {
+    if (!draggedElement) {
+      return;
+    }
+    if (actor.id !== draggedElement.id) {
+      const draggedElementIndex = props.actors.findIndex(
+        (x) => x.id === draggedElement.id
+      );
+      const actorIndex = props.actors.findIndex((x) => x.id === actor.id);
+      const actors = [...props.actors];
+      actors[actorIndex] = draggedElement;
+      actors[draggedElementIndex] = actor;
+      props.onAdd(actors);
+    }
+  }
   return (
     <div className='mb-3'>
       <label>{props.displayName}</label>
@@ -59,7 +83,13 @@ export default function TypeAheadActors(props: typeAheadActorProps) {
       />
       <ul className='list-group'>
         {props.actors.map((actor) => (
-          <li key={actor.id} className='list-group-item list-group-item-action'>
+          <li
+            key={actor.id}
+            draggable={true}
+            onDragStart={() => handleDragStart(actor)}
+            onDragOver={() => handleDragOver(actor)}
+            className='list-group-item list-group-item-action'
+          >
             {props.listUI(actor)}
             <span
               className='badge badge-primary badge-pill pointer text-dark'

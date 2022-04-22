@@ -1,4 +1,5 @@
 import React from "react";
+import { actorMovieDTO } from "../actors/actor.model";
 import { genreDTO } from "../genres/genres.model";
 import { movieTheaterDTO } from "../movietheaters/movieTheater.model";
 import MovieForm from "./MovieForm";
@@ -12,6 +13,15 @@ export default function EditMovie() {
   ];
   const selectedMovieTheaters: movieTheaterDTO[] = [
     { id: 2, name: "Gopi Krishna" },
+  ];
+  const selectedActors: actorMovieDTO[] = [
+    {
+      id: 1,
+      name: "Tom Holland",
+      picture:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Tom_Holland_by_Gage_Skidmore.jpg/800px-Tom_Holland_by_Gage_Skidmore.jpg",
+      character: "Tommy",
+    },
   ];
   return (
     <>
@@ -30,7 +40,7 @@ export default function EditMovie() {
         nonSelectedGenres={nonSelectedGenres}
         selectedMovieTheaters={selectedMovieTheaters}
         nonSelectedMovieTheaters={nonSelectedMovieTheaters}
-        selectedActors={[]}
+        selectedActors={selectedActors}
       />
     </>
   );

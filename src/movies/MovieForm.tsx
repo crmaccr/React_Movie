@@ -46,6 +46,7 @@ export default function MovieForm(props: movieFormProps) {
         values.genreIds = selectedGenres.map((item) => item.key);
 
         values.theaterIds = selectedMovieTheaters.map((item) => item.key);
+        values.actors = selectedActors;
         props.onSubmit(values, actions);
       }}
       initialValues={props.model}

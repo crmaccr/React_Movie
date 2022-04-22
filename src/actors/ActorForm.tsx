@@ -8,6 +8,7 @@ import * as Yup from "yup";
 import configureValidations from "../validation";
 import DateField from "../forms/DateField";
 import ImageField from "../forms/ImageField";
+import MarkdownField from "../forms/MarkdownField";
 configureValidations();
 export default function ActorForm(props: actorFormProps) {
   return (
@@ -28,6 +29,7 @@ export default function ActorForm(props: actorFormProps) {
             field='picture'
             imageURL={props.model.pictureURL}
           />
+          <MarkdownField displayName='Biography' field='biography' />
           <div className='mt-3'>
             <Button disabled={formikProps.isSubmitting} type='submit'>
               Save Changes

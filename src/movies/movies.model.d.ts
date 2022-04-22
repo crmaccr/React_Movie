@@ -4,6 +4,14 @@ export interface movieDTO {
   poster: string;
 }
 
+export interface movieCreationDTO {
+  title: string;
+  inTheaters: boolean;
+  trailer: string;
+  releaseDate?: Date;
+  poster?: File;
+  posterURL?: string;
+}
 export interface movieLandingPage {
   movies?: movieDTO[];
   upcoming?: movieDTO[];

@@ -5,6 +5,8 @@ import TextField from "../forms/TextField";
 import Button from "../utils/Button";
 import { Link } from "react-router-dom";
 import { genreCreationDTO } from "./genres.model";
+import configureValidations from "../validation";
+configureValidations();
 
 export default function GenreForm(props: genreFormProps) {
   return (
@@ -12,7 +14,7 @@ export default function GenreForm(props: genreFormProps) {
       initialValues={props.model}
       onSubmit={props.onSubmit}
       validationSchema={Yup.object().shape({
-        name: Yup.string().required("genre is required"),
+        name: Yup.string().required("genre is required").firstLetterUpperCase()
       })}
     >
       {(formikProps) => (

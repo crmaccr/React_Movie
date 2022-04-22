@@ -11,6 +11,7 @@ export interface movieCreationDTO {
   releaseDate?: Date;
   poster?: File;
   posterURL?: string;
+  genreIds?: number[];
 }
 export interface movieLandingPage {
   movies?: movieDTO[];

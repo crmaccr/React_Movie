@@ -1,7 +1,11 @@
 import React from "react";
+import { genreDTO } from "../genres/genres.model";
 import MovieForm from "./MovieForm";
 
 export default function EditMovie() {
+  const nonSelectedGenres: genreDTO[] = [{ id: 2, name: "Drama" }];
+  const selectedGenres: genreDTO[] = [{ id: 1, name: "Comedy" }];
+
   return (
     <>
       <h3>EditMovie</h3>
@@ -15,6 +19,8 @@ export default function EditMovie() {
             "https://upload.wikimedia.org/wikipedia/en/thumb/c/cc/K.G.F_Chapter_1_poster.jpg/220px-K.G.F_Chapter_1_poster.jpg",
         }}
         onSubmit={(values) => console.log(values)}
+        selectedGenres={selectedGenres}
+        nonSelectedGenres={nonSelectedGenres}
       />
     </>
   );

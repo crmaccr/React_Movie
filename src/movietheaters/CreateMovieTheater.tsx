@@ -1,5 +1,17 @@
 import React from "react";
+import MovieTheaterForm from "./MovieTheaterForm";
+
+//1. create DTO .d.ts
+//. MovieForm
 
 export default function CreateMovieTheater() {
-  return <h2>Create Movie Theater</h2>;
+  return (
+    <div>
+      Create Movie Theater
+      <MovieTheaterForm
+        onSubmit={(values) => console.log(values)}
+        model={{ name: "" }}
+      />
+    </div>
+  );
 }

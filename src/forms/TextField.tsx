@@ -4,11 +4,11 @@ import React from "react";
 export default function TextField(props: textFieldProps) {
   return (
     <div className='mb-3'>
-      <label htmlFor={props.name} className='form-label'>
+      <label htmlFor={props.field} className='form-label'>
         {props.displayName}
       </label>
-      <Field name={props.name} className='form-control' id={props.name} />
-      <ErrorMessage name={props.name}>
+      <Field name={props.field} className='form-control' id={props.field} />
+      <ErrorMessage name={props.field}>
         {(msg) => <div className='text-danger'>{msg}</div>}
       </ErrorMessage>
     </div>
@@ -16,6 +16,6 @@ export default function TextField(props: textFieldProps) {
 }
 
 interface textFieldProps {
-  name: string;
+  field: string;
   displayName: string;
 }

@@ -22,7 +22,7 @@ export default function ActorForm(props: actorFormProps) {
     >
       {(formikProps) => (
         <Form>
-          <TextField displayName='Name' name='name' />
+          <TextField displayName='Name' field='name' />
           <DateField displayName='Date Of Birth' field='dateOfBirth' />
           <ImageField
             displayName='Actor'
